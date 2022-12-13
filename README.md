@@ -1,2 +1,2 @@
 # little-practice
-Html CSS JS 的一些联系
+Html CSS JS 的 练习
