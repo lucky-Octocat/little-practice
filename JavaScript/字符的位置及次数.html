@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>字符的位置及次数</title>
+</head>
+<body>
+  <h3>字符串 'abcoefoxyozzopp' 中 'o' 出现的位置 及 次数</h3>
+  <div style="border: 1px solid red">
+    <h4>找索引位置</h4>
+    <p>先查找出 第一个 'o' 的位置</p>
+    <p>然后 只要 indexOf 返回的结果 不是 -1，就继续往后找</p>
+    <p>因为 indexOf 只能查找到 第一个，所以后面的查找 只能是 当前索引 加一，然后继续查找</p>
+    <ul>
+      <li>indexOf(searchElement, fromIndex)</li>
+      <li>searchElement----要查找的元素</li>
+      <li>fromIndex [可选]---- 开始查找的位置</li>
+    </ul>
+  </div>
+  <script>
+    const str = 'abcoefoxyozzopp'
+    // let index = str.indexOf('o')
+    // while (index !== -1) {
+    //   console.log('o的索引位置' + index)
+    //   index = str.indexOf('o', index +1)
+    // }
+    function findIndex(str, x) {
+      let index = str.indexOf(x)
+      while (index !== -1) {
+        console.log(`${x}-的索引位置为:${index}`)
+        index = str.indexOf(x, index + 1)
+      }
+    }
+
+    findIndex(str, 'o')
+  </script>
+</body>
+</html>
