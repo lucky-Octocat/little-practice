@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>显示/隐藏密码</title>
+  <style>
+    .box {
+      width: 400px;
+      border-bottom: 1px solid #ccc;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    .box input {
+      width: 370px;
+      height: 30px;
+      /* input 的边框 为 0 */
+      border: 0;
+      /* 聚焦时 边框消失 */
+      outline: none;
+    }
+
+    .box img {
+      width: 24px;
+      position: absolute;
+      top: 5px;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <label for="">
+      <img id="img-eye" src="images/close.png" alt="close">
+    </label>
+    <input type="password" name="" id="password">
+  </div>
+<script>
+  // 点击眼睛按钮，把密码框类型 改为文本框就可以
+  // 利用 flag 变量，根据变量的值 来判断
+  const passInp = document.querySelector('#password')
+  const eye = document.querySelector('#img-eye')
+
+  let flag = 0
+  eye.addEventListener('click', function () {
+    // console.log('eye')
+    if (flag) {
+      passInp.type = 'password'
+      this.src = 'images/close.png'
+      flag = 0
+    } else {
+      passInp.type = 'text'
+      this.src = 'images/eye.png'
+      flag = 1
+    }
+  })
+</script>
+</body>
+</html>
