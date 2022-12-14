@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>显示隐藏文本框内容</title>
+  <style>
+    input {
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" value="手机" name="" id="">
+  <script>
+    // focus 聚焦
+    // blur 失去焦点
+    const input = document.querySelector('input')
+    input.addEventListener('focus', function () {
+      if (this.value === '手机') {
+        this.value = ''
+      }
+    })
+    input.addEventListener('blur', function () {
+      if (this.value === '') {
+        this.value = '手机'
+      }
+    })
+  </script>
+</body>
+</html>
