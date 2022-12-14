@@ -2,9 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>统计出现次数最多的字符</title>
 </head>
 <body>
+  <h3>字符串 'abcoefoxyozzopp' 中 出现次数最多的字符 及 次数</h3>
+  <div style="border: 1px solid red">
+    <p>利用 charAt() 遍历这个字符串</p>
+    <p>把每个字符串都存储为 对象，如果对象没有属性，就为1，反之 加1</p>
+    <p>遍历对象，得到最大值和该字符</p>
+  </div>
+  <script>
+    const str = 'abcoefoxyozzopp'
 
+    function findStr(str) {
+      let obj = {}
+      for (let i = 0; i < str.length; i++) {
+        // chars 是 str 的每个字符
+        let chars = str.charAt(i)
+        if (obj[chars]) {
+          obj[chars]++
+        } else {
+          obj[chars] = 1
+        }
+      }
+      console.log(obj)
+      // 遍历对象
+      let max = 0
+      let char = ''
+      for (let objKey in obj) {
+        if (obj[objKey] > max) {
+          max = obj[objKey]
+          char = objKey
+        }
+      }
+      console.log(`出现最多的字符是${char},次数为${max}`)
+    }
+
+    findStr(str)
+  </script>
 </body>
 </html>
