@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>输入框验证信息</title>
+  <style>
+    div {
+      width: 600px;
+      height: 56px;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    input {
+      height: 28px;
+      outline: none;
+    }
+
+    .message {
+      /* 行内块 */
+      display: none;
+      position: absolute;
+      top: -5px;
+      left: 180px;
+      width: 200px;
+      font-size: 12px;
+      color: #999;
+      /*background: url("images/message.png") no-repeat left center;*/
+      padding-left: 20px;
+      text-align: left;
+    }
+
+    .message img {
+      width: 15px;
+      position: absolute;
+      left: 2px;
+      top: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="register">
+    <input type="password" class="ipt" maxlength="16">
+    <p class="message">
+      <img src="images/message.png">
+      <span>6~16位字符(字母、数字符号)，区分大小写</span>
+    </p>
+  </div>
+  <script>
+    // 正则校验密码: /^\S*(?=\S{6,})(?=\S*\d)(?=\S*[A-Z])(?=\S*[a-z])(?=\S*[!@#$%^&*? ])\S*$/
+    const inp = document.querySelector('.ipt')
+    const message = document.querySelector('.message')
+    const mesSpan = document.querySelector('.message span')
+    const img = document.querySelector('img')
+
+    inp.addEventListener("focus", function () {
+      message.style.display = 'inline-block'
+    })
+
+    inp.addEventListener('blur', function () {
+      console.log(inp.value, 'v')
+      if (inp.value === '') {
+        // 空 请输入登录密码
+        console.log('空 请输入登录密码')
+        img.src = 'images/error.png'
+        mesSpan.innerHTML = '请输入登录密码'
+      } else if (inp.value.length < 6) {
+        // 长度小于6 密码较短，最短支持6个字符
+        console.log('密码较短，最短支持6个字符')
+        img.src = 'images/error.png'
+        mesSpan.innerHTML = '密码较短，最短支持6个字符'
+      } else {
+        // 请牢记您的密码
+        img.src = 'images/success.png'
+        mesSpan.innerHTML = '请牢记您的密码'
+      }
+    })
+
+  </script>
+</body>
+</html>

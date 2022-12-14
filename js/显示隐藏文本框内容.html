@@ -19,11 +19,13 @@
       if (this.value === '手机') {
         this.value = ''
       }
+      this.style.color = '#333'
     })
     input.addEventListener('blur', function () {
-      if (this.value === '') {
+      if (this.value.trim() === '') {
         this.value = '手机'
       }
+      this.style.color = '#999'
     })
   </script>
 </body>
