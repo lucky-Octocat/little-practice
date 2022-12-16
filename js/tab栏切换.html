@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab栏切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tab {
+            width: 700px;
+            margin: 100px auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .tab_list ul {
+            display: flex;
+            border: 1px solid silver;
+            background-color: gainsboro;
+        }
+
+        .tab_list li {
+            width: 100px;
+            height: 39px;
+            line-height: 39px;
+            padding: 0 20px;
+            text-align: center;
+            /* 箭头 变 手*/
+            cursor: pointer;
+            border-bottom: 2px solid red;
+
+        }
+
+        .tab_list .current {
+            background-color: red;
+            color: white;
+        }
+
+        .item {
+            padding: 20px 0 0 20px;
+            display: none;
+        }
+
+        /*先不让 内容快显示*/
+
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品价格</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+                <li>社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block">商品价格</div>
+            <div class="item">规格与包装</div>
+            <div class="item">售后保障</div>
+            <div class="item">商品评价</div>
+            <div class="item">社区</div>
+        </div>
+    </div>
+    <script>
+      const titleList = document.querySelectorAll('.tab_list li')
+      const items = document.querySelectorAll('.tab_con .item')
+
+      // 切换 标题
+      for (let i = 0; i < titleList.length; i++) {
+        titleList[i].setAttribute('index', i)
+        titleList[i].addEventListener('click', function () {
+          document.querySelector('.current').classList.remove('current')
+          this.classList.add('current')
+
+          // 给每个标题 设置一个自定义属性，来得知 点了哪个标题
+          let index = this.getAttribute('index')
+          for (let j = 0; j < items.length; j++) {
+            items[j].style.display = 'none'
+          }
+          items[index].style.display = 'block'
+        })
+      }
+    </script>
+</body>
+</html>
