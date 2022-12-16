@@ -77,13 +77,14 @@
 
       // 切换 标题
       for (let i = 0; i < titleList.length; i++) {
-        titleList[i].setAttribute('index', i)
+        titleList[i].setAttribute('data-index', i)
         titleList[i].addEventListener('click', function () {
           document.querySelector('.current').classList.remove('current')
           this.classList.add('current')
 
           // 给每个标题 设置一个自定义属性，来得知 点了哪个标题
-          let index = this.getAttribute('index')
+          // let index = this.getAttribute('data-index')
+          let index = this.dataset.index
           for (let j = 0; j < items.length; j++) {
             items[j].style.display = 'none'
           }
