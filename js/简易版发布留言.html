@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布留言</title>
+</head>
+<body>
+    <div>
+        <textarea name="" id=""></textarea>
+        <button>发布</button>
+
+        <ul>
+        </ul>
+    </div>
+    <script>
+      const btn = document.querySelector('button')
+      const ul = document.querySelector('ul')
+      const text = document.querySelector('textarea')
+      btn.addEventListener('click', function () {
+        if (text.value.trim() === '') {
+          alert('-.--..-...--.-./-.---.....-...-/-.-...--..--..-/---....-.---..-/-.-...-..------/--------.......-/--------.......-')
+          text.focus()
+          return
+        } else {
+          // 创建元素
+          const newLi = document.createElement('li')
+          newLi.innerHTML = text.value
+          text.value = ''
+          // 添加元素
+
+          ul.insertBefore(newLi, ul.children[0])
+
+          // ul.appendChild(newLi)
+
+        }
+      })
+    </script>
+</body>
+</html>
