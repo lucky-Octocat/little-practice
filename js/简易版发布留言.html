@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>发布留言</title>
+    <style>
+        li a {
+            float: right;
+        }
+    </style>
 </head>
 <body>
-    <div>
+    <div style="width: 300px">
         <textarea name="" id=""></textarea>
         <button>发布</button>
 
@@ -24,13 +29,21 @@
         } else {
           // 创建元素
           const newLi = document.createElement('li')
-          newLi.innerHTML = text.value
+          newLi.innerHTML = text.value + "<a href='javascript:;'>删除</a>"
           text.value = ''
           // 添加元素
-
           ul.insertBefore(newLi, ul.children[0])
-
           // ul.appendChild(newLi)
+
+          // 删除元素
+          let as = document.querySelectorAll('a')
+          console.log(as, 'as')
+          // 给 a 绑定 点击事件
+          for (let i = 0; i < as.length; i++) {
+            as[i].addEventListener('click', function () {
+              ul.removeChild(this.parentNode)
+            })
+          }
 
         }
       })
