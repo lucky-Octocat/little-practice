@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据表格</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td, th {
+            border: 1px solid #333;
+        }
+
+        thead tr {
+            height: 40px;
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th>姓名</th>
+            <th>科目</th>
+            <th>成绩</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        const datas = [
+          {
+            name: '张三',
+            subject: 'java',
+            score: '88'
+          },
+          {
+            name: '李四',
+            subject: 'java',
+            score: '78'
+          },
+          {
+            name: '王五',
+            subject: 'java',
+            score: '98'
+          }
+        ]
+        const tbody = document.querySelector('tbody')
+        // tr 的数量，取决于 数组的length
+        for (let i = 0; i < datas.length; i++) {
+          const tr = document.createElement('tr')
+          tbody.appendChild(tr)
+          // tr中单元格的数量 取决于 对象的属性 个数
+          for (const key in datas[i]) {
+            const td = document.createElement('td')
+            td.innerHTML = datas[i][key]
+            tr.appendChild(td)
+          }
+          // 删除 单元格
+          const delTd = document.createElement('td')
+          delTd.innerHTML = "<a href='javascript:;'>删除</a>"
+          tr.appendChild(delTd)
+        }
+
+        // 绑定删除操作
+        const as = document.querySelectorAll('a')
+        for (let i = 0; i < as.length; i++) {
+          as[i].addEventListener('click', function () {
+            tbody.removeChild(this.parentNode.parentNode)
+          })
+        }
+    </script>
+</body>
+</html>
