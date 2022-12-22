@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="width: 40px; height: 40px; background-color:pink;"></div>
+    <p>给元素 contextmenu 事件，阻止默认事件 即可 禁止右键菜单</p>
+    <hr>
+    <p id="select">禁止选中 是 绑定 selectstart 事件，阻止默认事件 即可</p>
+    <script>
+      // document.addEventListener("contextmenu", function (e) {
+      //   // 阻止默认事件
+      //   e.preventDefault()
+      // })
+      document.querySelector('div').addEventListener('contextmenu', function (ev) {
+        ev.preventDefault()
+      })
+
+
+      const sel = document.querySelector('#select')
+      sel.addEventListener('selectstart', function (ev) {
+        ev.preventDefault()
+      })
+    </script>
+</body>
+</html>
