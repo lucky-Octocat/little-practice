@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+
+</head>
+<body>
+    <p>鼠标移动事件：mousemove</p>
+    <p>图片要移动，且不占位置，所以使用 绝对定位</p>
+    <img src="images/eye.png">
+    <script>
+      const eye = document.querySelector('img')
+      document.addEventListener('mousemove', function (ev) {
+        // 鼠标相对 视口的坐标
+        // ev.clientX
+        // ev.clientY
+        // 鼠标 相对页面的坐标
+        // ev.pageX
+        eye.style.top = (ev.pageY - 100) + 'px'
+        eye.style.left = (ev.pageX - 100) + 'px'
+      })
+    </script>
+</body>
+</html>
