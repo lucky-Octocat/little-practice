@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>根据区域名称进行布局</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 90%;
+      max-width: 900px;
+      margin: 2em auto;
+      font: 0.9em/1.2 Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      display: grid;
+      /* 列  两列 */
+      grid-template-columns: 1fr 3fr;
+      /* 间隙 */
+      gap: 20px;
+      grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer"
+      ;
+    }
+
+    header, footer {
+      border-radius: 5px;
+      padding: 10px;
+      background-color: rgb(207, 232, 220);
+      border: 2px solid rgb(79, 185, 227);
+    }
+
+    aside {
+      border-right: 1px solid #999;
+    }
+
+    header {
+      grid-area: header;
+    }
+    article {
+      grid-area: content;
+    }
+    aside {
+      grid-area: sidebar;
+    }
+    footer {
+      grid-area: footer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>根据区域名进行布局</header>
+    <article>
+      <h1>My article</h1>
+      <p>
+        项目 使用 grid-area 属性 起名；然后在容器中 grid-template-areas属性 进行布局
+      </p>
+      <hr>
+      <p>
+        如果某些区域不需要利用，则使用"点"（.）表示。点，表示没有用到该单元格，或者该单元格不属于任何区域。
+      </p>
+    </article>
+    <aside>
+      <h2>Other things</h2>
+      <p>
+        grid-row-gap属性设置行与行的间隔（行间距），grid-column-gap属性设置列与列的间隔（列间距）。grid-gap属性是grid-column-gap和grid-row-gap的合并简写形式，语法如下。
+      </p>
+    </aside>
+    <footer>
+      <a href="https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">CSS Grid网格布局教程---阮一峰</a>
+    </footer>
+  </div>
+</body>
+</html>
