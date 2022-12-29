@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 90%;
+            max-width: 900px;
+            margin: 2em auto;
+        }
+
+        .container > div {
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgb(207, 232, 220);
+            border: 2px solid rgb(79, 185, 227);
+        }
+
+        .container {
+            margin-top: 50px;
+            background-color: pink;
+            padding: 5px;
+            /* 开启 grid 布局*/
+            display: grid;
+            /* 三列，每列宽100px */
+            /*grid-template-columns: repeat(3, 100px);*/
+            /* 需要几列 就指定几列的宽度 */
+            /*grid-template-columns: 100px 100px 150px;*/
+            grid-template-columns: 1fr 2fr 1fr;
+            /* 行 */
+            grid-template-rows: 150px 150px 150px;
+            grid-auto-rows: 100px;
+            /* 间隙、缝隙 */
+            /*grid-column-gap: 10px;*/
+            /*grid-row-gap: 5px;*/
+            gap: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- grid 布局 就是网格布局， -->
+    <!-- 默认情况下 是一列，需要通过 grid-template-columns 来指定列数 -->
+    <!-- 需要去指定每个列的宽度 指定几个 就代表几列 -->
+    <!-- 如果需要很多列，可以使用 repeat(12, 50px); 十二列, 每列 宽50px -->
+    <h1>Simple grid example</h1>
+    <ul>
+        <li>默认情况下 是一列，需要通过
+            <strong>grid-template-columns</strong>
+            来指定 <strong>列</strong> 数
+            <ol>
+                <li>需要几列 就指定几列的宽度</li>
+                <li>如果需要很多列，可以使用
+                    <strong>repeat(12, 50px);</strong>
+                    十二列, 每列 宽50px
+                </li>
+                <li>如果需要 平分 父元素的宽度 使用 <strong>fr</strong>，
+                    fr 是 fraction，分数的意思
+                </li>
+                <li>还可以 常数与fr 混合使用</li>
+            </ol>
+        </li>
+        <li><strong>行：</strong>不指定 的情况下 列排不开就会自动换行
+            <ol>
+                <li><strong>grid-template-rows</strong> 属性 来指定 行高</li>
+                <li><strong>grid-auto-rows</strong> 未指定高度的行 会使用这个属性【优先级低一级】</li>
+            </ol>
+        </li>
+        <li><strong>缝隙：</strong>
+            <ol>
+                <li>
+                    行 的间隙 <strong>grid-column-gap: 10px;</strong>
+                </li>
+                <li>
+                    列 的间隙 <strong>grid-row-gap: 5px;</strong>
+                </li>
+                <li>还可以简写： <strong>gap</strong></li>
+            </ol>
+        </li>
+    </ul>
+
+    <div class="container">
+        <div>One</div>
+        <div>Two</div>
+        <div>Three</div>
+        <div>Four</div>
+        <div>Five</div>
+        <div>Six</div>
+        <div>Seven</div>
+    </div>
+</body>
+</html>

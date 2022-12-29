@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .good {
+            margin: 50px 80px;
+            position: relative;
+            border: #999999 solid 2px;
+            box-sizing: border-box;
+            width: 400px;
+            height: 400px;
+        }
+        .good img {
+            width: 100%;
+            height: 100%;
+        }
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            opacity: .3;
+            border: #d7d7d7 solid 1px;
+            cursor: move;
+        }
+        .big {
+            display: none;
+            width: 500px;
+            height: 500px;
+            border: #999999 solid 1px;
+            position: absolute;
+            top: 0;
+            left: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="good">
+        <img src="images/6-2.jpg" alt="">
+        <div class="mask"></div>
+        <div class="big">
+            <img src="images/6-2.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        const good = document.querySelector('.good')
+        const mask = document.querySelector('.mask')
+        const big = document.querySelector('.big')
+        good.addEventListener('mouseover', function () {
+          mask.style.display = 'block'
+          big.style.display = 'block'
+        })
+        good.addEventListener('mouseleave', function () {
+          mask.style.display = 'none'
+          big.style.display = 'none'
+        })
+    </script>
+</body>
+</html>
